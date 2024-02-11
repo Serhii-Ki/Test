@@ -1,7 +1,8 @@
+import generateUniqueId from 'generate-unique-id';
 import TodoList from './TodoList';
 
 export type TasksType = {
-	id: number;
+	id: string;
 	title: string;
 	isDone: boolean;
 };
@@ -9,31 +10,32 @@ export type TasksType = {
 function AppTodoList() {
 	const tasks: TasksType[] = [
 		{
-			id: 1,
+			id: generateUniqueId(),
 			title: 'JavaScript',
 			isDone: true,
 		},
 		{
-			id: 2,
+			id: generateUniqueId(),
 			title: 'React',
 			isDone: false,
 		},
 		{
-			id: 3,
+			id: generateUniqueId(),
 			title: 'Rest Api',
 			isDone: true,
 		},
 		{
-			id: 4,
+			id: generateUniqueId(),
 			title: 'Html',
 			isDone: false,
 		},
 		{
-			id: 5,
+			id: generateUniqueId(),
 			title: 'CSS',
 			isDone: true,
 		},
 	];
+
 	return (
 		<div>
 			<TodoList tasks={tasks} />
