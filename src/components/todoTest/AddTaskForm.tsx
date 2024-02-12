@@ -9,16 +9,32 @@ type AddPropsType = {
 
 function AddTaskForm(props: AddPropsType) {
 	const [inputValue, setInputValue] = useState<string>('');
+	const [isCorrect, setIsCorrect] = useState<boolean>(true);
 
 	const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputValue(e.currentTarget.value);
+		setIsCorrect(true);
+	};
+
+	const addTask = () => {
+		if (inputValue.trim() === '') {
+			setIsCorrect(false);
+			return;
+		}
+		props.addTask(inputValue);
+		setInputValue('');
 	};
 
 	return (
 		<div>
 			<SubTitle>Add new task</SubTitle>
-			<CustomInput value={inputValue} onChangeHandler={onChangeHandler} />
-			<CustomBtn title='Add' onClickHandler={() => props.addTask(inputValue)} />
+			<CustomInput
+				className={isCorrect ? '' : 'error-input'}
+				value={inputValue}
+				onChangeHandler={onChangeHandler}
+			/>
+			<CustomBtn title='Add' onClickHandler={addTask} />
+			{!isCorrect && <p style={{ color: 'red' }}>Enter correct title</p>}
 		</div>
 	);
 }

@@ -57,12 +57,18 @@ function TodoList(props: TasksPropsType) {
 			<AddTaskForm addTask={addTask} />
 			<SubTitle>Tasks List</SubTitle>
 			<BtnContainer>
-				<CustomBtn title='all' onClickHandler={() => onFilterList('all')} />
 				<CustomBtn
+					className={filter === 'all' ? 'active-filter' : ''}
+					title='all'
+					onClickHandler={() => onFilterList('all')}
+				/>
+				<CustomBtn
+					className={filter === 'active' ? 'active-filter' : ''}
 					title='active'
 					onClickHandler={() => onFilterList('active')}
 				/>
 				<CustomBtn
+					className={filter === 'finished' ? 'active-filter' : ''}
 					title='finished'
 					onClickHandler={() => onFilterList('finished')}
 				/>

@@ -6,6 +6,7 @@ type BtnStyledType = {
 
 type BtnPropsType = {
 	title: string;
+	className?: string;
 	onClickHandler?: () => void;
 } & BtnStyledType;
 

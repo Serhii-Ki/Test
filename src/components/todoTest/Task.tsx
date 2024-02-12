@@ -15,7 +15,7 @@ function Task(props: TaskPropsType) {
 			<StyledInput
 				type='checkbox'
 				checked={props.isDone}
-				// onChangeHandler={() => props.onChecked(props.id)}
+				onChange={() => props.onChecked(props.id)}
 			/>
 			<span>{props.title}</span>
 			<CustomBtn

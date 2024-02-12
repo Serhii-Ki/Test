@@ -5,11 +5,13 @@ type InputPropsType = {
 	type?: string;
 	value: string;
 	onChangeHandler?: (e: ChangeEvent<HTMLInputElement>) => void;
+	className?: string;
 };
 
 function CustomInput(props: InputPropsType) {
 	return (
 		<StyledInput
+			className={props.className}
 			value={props.value}
 			type={props.type || 'text'}
 			onChange={props.onChangeHandler}
