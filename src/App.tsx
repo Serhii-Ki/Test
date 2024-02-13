@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import AppTodoList from './components/todoTest/AppTodoList';
+import AppTest from './components/testComponents/AppTest';
 import { MyTheme } from './styles/ThemeStyles';
 
 function App() {
 	return (
 		<div className='App'>
-			<AppTodoList />
+			{/* <AppTodoList /> */}
+			<AppTest />
 		</div>
 	);
 }
