@@ -1,12 +1,22 @@
 import { useState } from 'react';
-import Stars from './Stars';
 
 function AppTest() {
-	const [count, setCount] = useState(0);
+	const [collapsed, setCollapsed] = useState<boolean>(false);
 
 	return (
 		<div>
-			<Stars count={count} setCount={setCount} />
+			<div onClick={() => setCollapsed(!collapsed)}>
+				{collapsed ? 'close' : 'open'}
+			</div>
+			{collapsed && (
+				<div>
+					<p>Some text</p>
+					<p>Some text</p>
+					<p>Some text</p>
+					<p>Some text</p>
+					<p>Some text</p>
+				</div>
+			)}
 		</div>
 	);
 }
