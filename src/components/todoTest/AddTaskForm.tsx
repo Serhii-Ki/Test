@@ -4,7 +4,8 @@ import CustomBtn from './CustomBtn';
 import CustomInput from './CustomInput';
 
 type AddPropsType = {
-	addTask: (task: string) => void;
+	idTodoList: string;
+	addTask: (id: string, task: string) => void;
 };
 
 function AddTaskForm(props: AddPropsType) {
@@ -21,7 +22,7 @@ function AddTaskForm(props: AddPropsType) {
 			setIsCorrect(false);
 			return;
 		}
-		props.addTask(inputValue);
+		props.addTask(props.idTodoList, inputValue);
 		setInputValue('');
 	};
 

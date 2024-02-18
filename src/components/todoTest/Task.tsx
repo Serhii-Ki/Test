@@ -5,8 +5,8 @@ type TaskPropsType = {
 	id: string;
 	title: string;
 	isDone: boolean;
-	deleteTask: (id: string) => void;
-	onChecked: (id: string) => void;
+	deleteTask?: (id: string) => void;
+	onChecked?: (id: string) => void;
 };
 
 function Task(props: TaskPropsType) {
@@ -15,13 +15,13 @@ function Task(props: TaskPropsType) {
 			<StyledInput
 				type='checkbox'
 				checked={props.isDone}
-				onChange={() => props.onChecked(props.id)}
+				onChange={() => props.onChecked && props.onChecked(props.id)}
 			/>
 			<span>{props.title}</span>
 			<CustomBtn
 				title='X'
 				btnType='small'
-				onClickHandler={() => props.deleteTask(props.id)}
+				onClickHandler={() => props.deleteTask && props.deleteTask(props.id)}
 			/>
 		</TaskItem>
 	);
