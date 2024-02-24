@@ -1,20 +1,21 @@
 import styled from 'styled-components';
-import AppTodoList from './components/todoTest/AppTodoList';
-import { MyTheme } from './styles/ThemeStyles';
+import AppClassWork from './components/classWork/AppClassWork';
 
 function App() {
 	return (
-		<div className='App'>
-			<AppTodoList />
+		<Wrapper className='App'>
+			<AppClassWork />
+			{/* <AppTodoList /> */}
 			{/* <AppTest /> */}
-		</div>
+		</Wrapper>
 	);
 }
 
 export default App;
 
 const Wrapper = styled.div`
-	width: 200px;
-	height: 300px;
-	background-color: ${MyTheme.colors.main};
+	min-height: 100vh;
+	display: grid;
+	justify-items: center;
+	align-items: center;
 `;
