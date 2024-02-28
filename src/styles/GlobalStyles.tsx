@@ -9,10 +9,6 @@ export const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    body {
-        background-color: #252222;
-    }
-
     .error-input {
         border: 1px solid red;
     }

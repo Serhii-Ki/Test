@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import AppClassWork from './components/classWork/AppClassWork';
 
 function App() {
 	return (
 		<Wrapper className='App'>
-			<AppClassWork />
 			{/* <AppTodoList /> */}
 			{/* <AppTest /> */}
 		</Wrapper>
