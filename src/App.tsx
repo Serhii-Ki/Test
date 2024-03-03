@@ -1,19 +1,12 @@
-import styled from 'styled-components';
+import './app.css';
+import TestCounter from './components/testCounter/TestCounter';
 
 function App() {
 	return (
-		<Wrapper className='App'>
-			{/* <AppTodoList /> */}
-			{/* <AppTest /> */}
-		</Wrapper>
+		<div className='app'>
+			<TestCounter />
+		</div>
 	);
 }
 
 export default App;
-
-const Wrapper = styled.div`
-	min-height: 100vh;
-	display: grid;
-	justify-items: center;
-	align-items: center;
-`;
