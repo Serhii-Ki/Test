@@ -1,6 +1,7 @@
 import styles from './counter.module.css';
 
 type ButtonPropsType = {
+	class?: string;
 	title: string;
 	onClick: () => void;
 };
