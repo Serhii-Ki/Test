@@ -1,10 +1,11 @@
 import './app.css';
-import TestCounter from './components/testCounter/TestCounter';
+
+import AppTest from "./components/testComponents/AppTest";
 
 function App() {
 	return (
 		<div className='app'>
-			<TestCounter />
+			<AppTest/>
 		</div>
 	);
 }

@@ -1,17 +1,28 @@
-import styled from 'styled-components';
+import styles from './test.module.css';
+import {useState} from "react";
 
 function AppTest() {
-	return <StyledContainer></StyledContainer>;
+	const options = ['Kiev', 'Doneck', 'Summy'];
+
+	const [viewSelect, setViewSelect] = useState<boolean>(true);
+	const [option, setOption] = useState<string>('city');
+
+	return (
+			<div className={styles.wrap}>
+				<h1 className={styles.box} onClick={() => setViewSelect(prev => !prev)}>{option}</h1>
+				{viewSelect &&
+					<div className={styles['select-wrap']}>
+						{options.map(el => {
+							return (
+									<p className={styles.option} onClick={() => {setOption(el); setViewSelect(false)}}>{el}</p>
+							)
+						})}
+					</div>
+				}
+			</div>
+
+	);
 }
 
-const StyledContainer = styled.div`
-	width: 100px;
-	height: 100px;
-	background-color: red;
-
-	&:hover {
-		transform: scaleX(300%);
-	}
-`;
 
 export default AppTest;
