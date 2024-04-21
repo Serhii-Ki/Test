@@ -14,7 +14,7 @@ const initialState: counterStateType  = {
   count: '0',
   inputMin: '',
   inputMax: '',
-  min: '',
+  min: '0',
   max: '',
   isErrorMin: false,
   isErrorMax: false
@@ -29,7 +29,11 @@ export const counterReducer = (state: counterStateType = initialState, action: A
         return state;
       }
     case 'DECREMENT':
-      return {...state, count: String(+state.count - 1)};
+      if(state.count > state.min) {
+        return {...state, count: String(+state.count - 1)};
+      } else {
+        return state;
+      }
       case 'RESET':
         return {...state, count: state.min || '0'};
     case 'CHANGE_MIN':

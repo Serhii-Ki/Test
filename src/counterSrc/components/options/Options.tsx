@@ -26,8 +26,18 @@ function Options() {
   return (
       <div className={styles['options-display']}>
         <div className={styles['input-wrapper']}>
-          <CustomInput label={'set min'} value={counter.inputMin} onChange={onChangeMin}/>
-          <CustomInput label={'set max'} value={counter.inputMax} onChange={onChangeMax}/>
+          <CustomInput
+              label={'set min'}
+              value={counter.inputMin}
+              onChange={onChangeMin}
+              isError={counter.isErrorMin}
+          />
+          <CustomInput
+              label={'set max'}
+              value={counter.inputMax}
+              onChange={onChangeMax}
+              isError={counter.isErrorMax}
+          />
         </div>
         <div className={styles['btn-wrapper']}>
           <CustomBtn title={'close'} onClick={() => {}}/>
