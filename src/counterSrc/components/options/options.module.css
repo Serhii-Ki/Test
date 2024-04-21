@@ -1,0 +1,26 @@
+.options-display {
+  padding: 40px 20px;
+  border: 2px solid #0c67ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  background-color: rgba(169, 163, 163, 0.22);
+  color: #ec0505;
+  border-radius: 10px;
+  position: absolute;
+  right: 250px;
+  top: 420px
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.btn-wrapper {
+  display: flex;
+  column-gap: 20px;
+}
