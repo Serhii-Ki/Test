@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *,
 *:before,
 *:after {
@@ -5,3 +6,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+=======
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: rgb(39, 35, 35);
+	color: white;
+}
+>>>>>>> 5a301a82ac52b18c37dbaa89bc84640e36481a01
