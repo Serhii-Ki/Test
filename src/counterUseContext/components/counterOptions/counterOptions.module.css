@@ -1,0 +1,33 @@
+.optionsWrapper {
+  padding: 20px 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 400px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -420px;
+}
+
+.icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #605959;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.btnWrapper {
+  display: flex;
+  column-gap: 30px;
+}

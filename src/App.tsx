@@ -1,12 +1,13 @@
-import Timer from "./timer/Timer.tsx";
+import AppCounter from "./counterUseContext/AppCounter.tsx";
+
 
 function App() {
 
 
   return (
     <>
-
-      <Timer/>
+      <AppCounter/>
+      {/*<Timer/>*/}
     </>
   )
 }

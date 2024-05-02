@@ -1,0 +1,17 @@
+.counterWrapper {
+  height: 100vh;
+  background: url("https://i.redd.it/c3uhsgo1vx541.jpg") center center/cover no-repeat;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+}
+
+.mainDisplay {
+  margin-top: 30px;
+  position: relative;
+}
