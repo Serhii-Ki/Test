@@ -13,4 +13,8 @@
     color: black;
     border-color: black;
   }
+
+  &:disabled {
+    border-color: red;
+  }
 }
