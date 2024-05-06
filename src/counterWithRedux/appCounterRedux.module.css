@@ -1,0 +1,13 @@
+.mainWrapper {
+  min-height: 100vh;
+  background: url("https://images7.alphacoders.com/120/thumb-1920-1205978.jpg") center center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+
+  h1 {
+    font-size: 42px;
+  }
+}

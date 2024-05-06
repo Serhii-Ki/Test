@@ -1,4 +1,4 @@
-import AppCounter from "./counterUseContext/AppCounter.tsx";
+import AppCounterRedux from "./counterWithRedux/AppCounterRedux.tsx";
 
 
 function App() {
@@ -6,8 +6,9 @@ function App() {
 
   return (
     <>
-      <AppCounter/>
+      {/*<AppCounter/>*/}
       {/*<Timer/>*/}
+      <AppCounterRedux/>
     </>
   )
 }
