@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../store/store.ts";
 import {StateType} from "../../store/reducer.ts";
 import Stack from "@mui/material/Stack";
-import {setMinAC} from "../../store/actions.ts";
+import {setMaxAC, setMinAC} from "../../store/actions.ts";
 
 type CounterOptionsTypeProps = {
   toggleOptions: () => void
@@ -18,7 +18,8 @@ function CounterOptions(props: CounterOptionsTypeProps) {
   const maxVal = state.max ? String(state.max) : ''
   const [minValue, setMinValue] = useState<string>('');
   const [maxValue, setMaxValue] = useState<string>('');
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
 
   const  onChangeMinValue = (value: string) => {
     setMinValue(value);
@@ -34,6 +35,13 @@ function CounterOptions(props: CounterOptionsTypeProps) {
     }
   }
 
+  const setMax = () => {
+    if(maxValue && Number(maxValue) > state.min){
+      dispatch(setMaxAC(Number(maxValue)));
+      setMaxValue('')
+    }
+  }
+
   return (
       <div className={styles['counterOptions']}>
         <CloseIcon className={styles['iconClose']} onClick={props.toggleOptions}/>
@@ -41,7 +49,7 @@ function CounterOptions(props: CounterOptionsTypeProps) {
         <CustomInput label={'max'} placeholder={maxVal} value={maxValue} onChange={onChangeMaxValue}/>
         <Stack direction="row" spacing={3}>
           <CustomBtn name={'setMin'} onClick={setMin}/>
-          <CustomBtn name={'setMax'} onClick={() => {}}/>
+          <CustomBtn name={'setMax'} onClick={setMax}/>
         </Stack>
       </div>
   );

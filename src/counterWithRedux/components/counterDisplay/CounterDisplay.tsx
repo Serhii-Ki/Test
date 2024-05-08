@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../store/store.ts";
 import {StateType} from "../../store/reducer.ts";
 import {decrAC, incAC, resetAC, setCountAC} from "../../store/actions.ts";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 type CounterDisplayTypeProps = {
   toggleOptions: () => void
@@ -15,6 +15,23 @@ type CounterDisplayTypeProps = {
 function CounterDisplay(props: CounterDisplayTypeProps) {
   const state = useSelector<AppRootStateType, StateType>(state => state.counter);
   const dispatch = useDispatch();
+
+  const [isMinDisable, setMinDisable] = useState<boolean>(false);
+  const [isMaxDisable, setMaxDisable] = useState<boolean>(false);
+
+  useEffect(() => {
+    if(state.min === state.count){
+      setMinDisable(true)
+    } else {
+      setMinDisable(false)
+    }
+
+    if(state.max === state.count){
+      setMaxDisable(true)
+    } else {
+      setMaxDisable(false)
+    }
+  }, [state.min, state.max, state.count]);
 
   useEffect(() => {
     if(state.min !== state.count){
@@ -44,8 +61,8 @@ function CounterDisplay(props: CounterDisplayTypeProps) {
           {state.count}
         </div>
         <Stack direction="row" spacing={3} mt={'40px'}>
-          <CustomBtn name={'DEC'} onClick={decrementCount}/>
-          <CustomBtn name={'INC'} onClick={incrementCount}/>
+          <CustomBtn disabled={isMinDisable} name={'DEC'} onClick={decrementCount}/>
+          <CustomBtn disabled={isMaxDisable} name={'INC'} onClick={incrementCount}/>
         </Stack>
         <Stack direction="row" spacing={3} mt={'20px'}>
           <CustomBtn name={'Reset'} onClick={resetCount}/>
