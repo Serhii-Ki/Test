@@ -33,7 +33,7 @@ function Timer() {
   }
 
   useEffect(() => {
-    let timerId: string | number;
+    let timerId: NodeJS.Timer;
     if(isStart){
       timerId = setInterval(() => {
         setSeconds(prev => String(Number(prev) + 1))
