@@ -83,7 +83,6 @@ export const Income = () => {
         onClick={() => {
           // ❗❗❗ XXX ❗❗❗
           dispatch(changeValue({ donation: work + donate }));
-          dispatch(changeValue({ balance: work + donate }));
         }}
       >
         calculate balance
