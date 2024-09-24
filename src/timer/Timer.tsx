@@ -1,62 +1,49 @@
-import {useEffect, useState} from "react";
-
+import { useEffect, useState, useRef } from "react";
 
 function Timer() {
-  const [seconds, setSeconds] = useState<string>('0');
-  const [minutes, setMinutes] = useState<string>('0');
-  const [hours, setHours] = useState<string>('0');
-  const [isStart, setIsStart] = useState<boolean>(false);
+  const [isTimerStart, setIsTimerStart] = useState<boolean>(false);
+  const [elapsedTime, setElapsedTime] = useState<number>(0); // Хранит прошедшее время в миллисекундах
+  const timerRef = useRef<number | null>(null); // Ref для хранения ID интервала
+  const startTimeRef = useRef<number | null>(null); // Ref для хранения начального времени
 
-  useEffect(() => {
-    if(seconds === '60') {
-      setSeconds('0');
-      setMinutes(prev => String(Number(prev) + 1))
+  const onTimer = (isStart: boolean) => {
+    if (isStart) {
+      startTimeRef.current = Date.now() - elapsedTime; // Запоминаем время старта и корректируем на прошедшее время
+      timerRef.current = window.setInterval(() => {
+        setElapsedTime(Date.now() - (startTimeRef.current || 0)); // Вычисляем прошедшее время с момента старта
+      }, 1000 / 60); // Запускаем с интервалом 60 FPS для плавности
+    } else {
+      clearInterval(timerRef.current!);
+      timerRef.current = null;
     }
-    if(minutes === '60') {
-      setMinutes('0');
-      setHours(prev => String(Number(prev) + 1))
-    }
-  }, [seconds, minutes]);
-
-  const startTimer = () => {
-    setIsStart(true);
+    setIsTimerStart(isStart);
   };
 
-  const stopTimer = () => {
-    setIsStart(false);
-  };
-
-  const resetTimer = () => {
-    setSeconds('0');
-    setMinutes('0');
-    setHours('0');
-  }
-
   useEffect(() => {
-    let timerId: NodeJS.Timer;
-    if(isStart){
-      timerId = setInterval(() => {
-        setSeconds(prev => String(Number(prev) + 1))
-      }, 1000)
-    }
-
     return () => {
-      clearInterval(timerId);
-    }
-  }, [isStart]);
+      if (timerRef.current) clearInterval(timerRef.current); // Очищаем таймер при размонтировании
+    };
+  }, []);
+
+  const formatTime = (time: number) => {
+    const totalSeconds = Math.floor(time / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const format = (value: number) => (value < 10 ? `0${value}` : value);
+
+    return `${format(hours)} : ${format(minutes)} : ${format(seconds)}`;
+  };
+
   return (
+    <div>
+      <span>{formatTime(elapsedTime)}</span>
       <div>
-        <div>
-          <span>{Number(hours) < 10 ? '0' + hours : hours} : </span>
-          <span>{Number(minutes) < 10 ? '0' + minutes : minutes} : </span>
-          <span>{Number(seconds) < 10 ? '0' + seconds : seconds}</span>
-        </div>
-        <div>
-          <button onClick={startTimer}>start</button>
-          <button onClick={stopTimer}>stop</button>
-          <button onClick={resetTimer}>reset</button>
-        </div>
+        <button onClick={() => onTimer(false)}>stop</button>
+        <button onClick={() => onTimer(true)}>start</button>
       </div>
+    </div>
   );
 }
 

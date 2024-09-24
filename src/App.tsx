@@ -1,17 +1,13 @@
-import AppCounterRedux from "./counterWithRedux/AppCounterRedux.tsx";
-
+import Timer from "./timer/Timer.tsx";
 
 function App() {
-
-
   return (
     <>
       {/*<AppCounter/>*/}
-      {/*<Timer/>*/}
-      <AppCounterRedux/>
+      <Timer />
+      {/*<AppCounterRedux/>*/}
     </>
-  )
+  );
 }
 
-export default App
-
+export default App;
