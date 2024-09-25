@@ -1,11 +1,12 @@
-import Timer from "./timer/Timer.tsx";
+import AppPizza from "./pizzaShop/AppPizza.tsx";
 
 function App() {
   return (
     <>
       {/*<AppCounter/>*/}
-      <Timer />
+      {/*<Timer />*/}
       {/*<AppCounterRedux/>*/}
+      <AppPizza />
     </>
   );
 }
