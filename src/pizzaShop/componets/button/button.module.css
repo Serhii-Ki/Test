@@ -1,0 +1,21 @@
+.button {
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.main {
+  background-color: #e57106;
+
+  &:hover {
+    background-color: #d36100;
+  }
+}
+
+.filter {
+  background-color: #00a6ed;
+
+  &:hover {
+    background-color: #0089cc;
+  }
+}
