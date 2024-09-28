@@ -2,13 +2,19 @@ import styles from "./header.module.css";
 
 import cart from "../../../assets/cart.svg";
 
-function Header() {
+interface Props {
+  type?: "main";
+}
+
+function Header({ type }: Props) {
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>
-        <span>logo</span>
-        <span>Самая вкусная пицца</span>
-      </div>
+      {type === "main" && (
+        <div className={styles.logo}>
+          <span>logo</span>
+          <span>Самая вкусная пицца</span>
+        </div>
+      )}
       <div className={styles.button}>
         <span>500 $</span>
         <span className={styles.slach}></span>

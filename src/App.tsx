@@ -1,12 +1,10 @@
-import AppPizza from "./pizzaShop/AppPizza.tsx";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./pizzaShop/router/routs.tsx";
 
 function App() {
   return (
     <>
-      {/*<AppCounter/>*/}
-      {/*<Timer />*/}
-      {/*<AppCounterRedux/>*/}
-      <AppPizza />
+      <RouterProvider router={router} />
     </>
   );
 }

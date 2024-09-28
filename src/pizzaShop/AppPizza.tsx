@@ -1,9 +1,9 @@
-import Header from "./componets/header/Header.tsx";
+import { Outlet } from "react-router-dom";
 
 function AppPizza() {
   return (
     <div>
-      <Header />
+      <Outlet />
     </div>
   );
 }
