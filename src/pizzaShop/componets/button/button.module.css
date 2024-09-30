@@ -2,6 +2,8 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.5s ease;
 }
 
 .main {
@@ -13,9 +15,16 @@
 }
 
 .filter {
-  background-color: #00a6ed;
+  background-color: #e7e4e4;
+  color: #000000;
 
   &:hover {
-    background-color: #0089cc;
+    background-color: #000000;
+    color: #ffffff;
   }
+}
+
+.active {
+  background-color: #000000;
+  color: #ffffff;
 }
