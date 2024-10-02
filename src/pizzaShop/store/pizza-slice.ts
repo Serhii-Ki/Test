@@ -17,7 +17,7 @@ const slice = createSlice({
   initialState: {} as InitialStateType,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getPizza.fulfilled, (state, action) => {
+    builder.addCase(getPizza.fulfilled, (_, action) => {
       return action.payload;
     });
   },

@@ -12,8 +12,6 @@ function MainPage() {
   const dispatch = useAppDispatch();
   const pizzas = useSelector(selectedPizza);
 
-  console.log(pizzas);
-
   useEffect(() => {
     dispatch(pizzaThunk.getPizza());
   }, []);
