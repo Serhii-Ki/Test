@@ -5,12 +5,11 @@ import styles from "./mainPage.module.css";
 import SortSelect from "../../componets/sortSelect/SortSelect.tsx";
 import { useEffect } from "react";
 import { useAppDispatch } from "../../store/store.ts";
-import { pizzaThunk, selectedPizza } from "../../store/pizza-slice.ts";
-import { useSelector } from "react-redux";
+import { pizzaThunk } from "../../store/pizza-slice.ts";
+import Pizzas from "../../componets/pizzas/Pizzas.tsx";
 
 function MainPage() {
   const dispatch = useAppDispatch();
-  const pizzas = useSelector(selectedPizza);
 
   useEffect(() => {
     dispatch(pizzaThunk.getPizza());
@@ -21,6 +20,7 @@ function MainPage() {
       <div className={styles.sortWrapper}>
         <FilterButtons />
         <SortSelect />
+        <Pizzas />
       </div>
     </div>
   );

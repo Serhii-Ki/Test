@@ -14,7 +14,7 @@ type InitialStateType = {
 
 const slice = createSlice({
   name: "pizza",
-  initialState: {} as InitialStateType,
+  initialState: [] as InitialStateType[],
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getPizza.fulfilled, (_, action) => {
@@ -23,7 +23,7 @@ const slice = createSlice({
   },
 });
 
-const getPizza = createAsyncThunk<InitialStateType, void>(
+const getPizza = createAsyncThunk<InitialStateType[], void>(
   `${slice.name}/getPizza`,
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;

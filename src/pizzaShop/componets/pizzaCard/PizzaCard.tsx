@@ -1,10 +1,14 @@
 import styles from "./pizzaCard.module.css";
 import Button from "../button/Button.tsx";
 
-function PizzaCard() {
+type Props = {
+  img: string;
+};
+
+function PizzaCard(props: Props) {
   return (
     <div className={styles.cardWrapper}>
-      <img src="" alt="pizza" className={styles.img} />
+      <img src={props.img} alt="pizza" className={styles.img} />
       <h3 className={styles.title}>Мясная пицца</h3>
       <div className={styles.optins}>
         <div className={styles.topOptions}>
