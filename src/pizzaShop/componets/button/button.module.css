@@ -7,10 +7,13 @@
 }
 
 .main {
-  background-color: #e57106;
+  background-color: #ffffff;
+  color: #e57106;
+  border: 1px solid #e57106;
 
   &:hover {
-    background-color: #d36100;
+    background-color: #e57106;
+    color: #ffffff;
   }
 }
 

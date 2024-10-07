@@ -20,8 +20,8 @@ function MainPage() {
       <div className={styles.sortWrapper}>
         <FilterButtons />
         <SortSelect />
-        <Pizzas />
       </div>
+      <Pizzas />
     </div>
   );
 }

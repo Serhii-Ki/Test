@@ -3,3 +3,44 @@
   flex-direction: column;
   align-items: center;
 }
+
+.img {
+  max-height: 150px;
+}
+
+.title {
+
+}
+
+.options {
+  border-radius: 20px;
+  background-color: rgba(231, 228, 228, 0.82);
+  padding: 15px;
+}
+
+.topOptions {
+  display: flex;
+}
+
+.optionItem {
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.optionItemActive {
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.downOptions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}

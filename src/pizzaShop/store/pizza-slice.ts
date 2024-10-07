@@ -4,6 +4,7 @@ import { pizzaRequest } from "../services/pizzaRequest.ts";
 
 type InitialStateType = {
   id: number;
+  title: string;
   imageUrl: string;
   types: number[];
   sizes: number[];
@@ -29,6 +30,7 @@ const getPizza = createAsyncThunk<InitialStateType[], void>(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await pizzaRequest().getPizza();
+      console.log(res.data);
       return res.data;
     } catch (err) {
       return rejectWithValue(err);
